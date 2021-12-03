@@ -21,7 +21,8 @@
         </div>
 
         <div class="flex cart nav-element">
-            <a href="javascript:" class="open-cart" id="open-cart-button">Корзина<sup class="cart-counter" id="cart-counter">0</sup> </a>
+            <a href="javascript:" class="open-cart" id="open-cart-button">Корзина<sup class="cart-counter"
+                                                                                      id="cart-counter">0</sup> </a>
         </div>
     </div>
 
@@ -47,14 +48,22 @@
             Development & design — Anastasiya Lukashevich
         </p>
 
-    <p class="offer">
-        Вы принимаете условия политики конфиденциальности и пользовательского соглашения каждый раз,
-        <br>
-        когда оставляете свои данные в любой форме обратной связи на сайте cmkv.by
-    </p>
+        <p class="offer">
+            Вы принимаете условия политики конфиденциальности и пользовательского соглашения каждый раз,
+            <br>
+            когда оставляете свои данные в любой форме обратной связи на сайте cmkv.by
+        </p>
     </div>
 
     {% include 'shop/static_components/cart.html' %}
+
+    <div class="flex modal modal-hidden" id="order-confirmed-modal">
+        <div class="flex modal-inner-window">
+            <h2 class="modal-title">Ваш заказ принят!</h2>
+            <button class="confirm-modal" onclick="orderConfirmedModal.classList.add('modal-hidden')">OK</button>
+        </div>
+    </div>
+
 
     <script src="{% static 'js/header.js' %}"></script>
 {% endblock %}

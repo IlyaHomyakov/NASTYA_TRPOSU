@@ -13,9 +13,10 @@ customerPhoneInput.onchange = e => {
 }
 
 confirmButton.onclick = e => {
+    const order = JSON.parse(localStorage.getItem('cart'))
 
     if (customerNameInput.value === '') {
-        customerNameInput.placeholder = 'Введите ФИО'
+        customerNameInput.placeholder = 'Введите имя'
         customerNameInput.classList.add('customer-data-input-invalid')
     }
     if (customerPhoneInput.value === '') {
@@ -40,7 +41,22 @@ confirmButton.onclick = e => {
                 'X-CSRFToken': csrfToken
             },
             body: JSON.stringify(orderObject)
-        }).then(r => console.log(r))
+        }).then(
+            r => console.log(r)
+        )
+
+        const cart = []
+        localStorage.setItem('cart', JSON.stringify(cart))
+        localStorage.setItem('cartItemsCount', 0)
+
+        const orderConfirmedModal = document.getElementById('order-confirmed-modal')
+        orderConfirmedModal.classList.remove('modal-hidden')
+
+        const sideCart = document.getElementById('side-cart-background')
+        sideCart.classList.remove('side-cart-background-on')
+
+
+        document.getElementById('cart-counter').innerHTML = 0
     }
 
 

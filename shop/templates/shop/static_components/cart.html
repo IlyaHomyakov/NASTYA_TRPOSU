@@ -6,7 +6,7 @@
     <div class="flex side-cart" id="side-cart">
 
         <div class="flex side-cart-header">
-            <h3 class="side-cart-title">Корзина</h3>
+            <h3 class="side-cart-title" id="side-cart-title">Корзина</h3>
             <span class="close-side-cart" id="close-cart-button">&#x2715</span>
         </div>
 
@@ -15,21 +15,29 @@
 
             </div>
 
-            <div class="flex customer-data">
+            <div class="flex customer-data" id="customer-data-input-block">
                 <input type="text" value="" id="customer-name-input" class="customer-data-input customer-name" required
                        placeholder="Введите имя">
                 <input type="tel" value="" id="customer-phone-input" class="customer-data-input customer-phone" required
-                       placeholder="Введите номер телефон">
+                       placeholder="Введите номер телефона">
             </div>
         </div>
 
-        <div class="flex side-cart-footer">
+        <div class="flex side-cart-footer" id="side-cart-footer">
             <p class="order-summary" id="order-summary">Итоговая стоимость: <span id="total-cart-price-value"></span>
             </p>
             <button class="confirm-order" id="confirm-button">Оформить заказ</button>
         </div>
-
     </div>
 </div>
+
+<div class="flex modal modal-hidden" id="order-confirmed-modal">
+    <div class="flex modal-inner-window">
+        <h2 class="modal-title">Ваш заказ принят!</h2>
+        <button class="confirm-modal" onclick="orderConfirmedModal.classList.add('modal-hidden')">OK</button>
+    </div>
+</div>
+
+
 {% csrf_token %}
 <script src="{% static 'js/fetch_api.js' %}"></script>

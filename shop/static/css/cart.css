@@ -58,6 +58,8 @@ hr {
     height: 1px;
     background-color: rgba(0, 0, 0, .1);
     border: 0;
+    display: flex;
+    align-self: flex-end;
 }
 
 .side-cart-content {
@@ -89,6 +91,8 @@ hr {
     width: 100%;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    padding: 5px 0;
 }
 
 
