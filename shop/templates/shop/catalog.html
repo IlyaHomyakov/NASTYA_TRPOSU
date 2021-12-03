@@ -1,0 +1,60 @@
+{% extends 'shop/index.html' %}
+{% load static %}
+
+{% block head %}
+    <title>Каталог</title>
+    <link rel="stylesheet" href="{% static 'css/catalog.css' %}">
+{% endblock %}
+
+{% block container %}
+
+    <div class="flex header" id="header">
+        <div class="flex change-catalog nav-element">
+            <a href="{% url 'woman_catalog' %}"
+               class="change {% if request.resolver_match.url_name == "woman_catalog" %}active-link{% endif %}">Женщинам</a>
+            <a href="{% url 'man_catalog' %}"
+               class="change {% if request.resolver_match.url_name == "man_catalog" %}active-link{% endif %}">Мужчинам</a>
+        </div>
+
+        <div class="flex logo nav-element">
+            <a href="{% url 'main' %}" class="header-logo">C M K V</a>
+        </div>
+
+        <div class="flex cart nav-element">
+            <a href="javascript:" class="open-cart" id="open-cart-button">Корзина<sup class="cart-counter" id="cart-counter">0</sup> </a>
+        </div>
+    </div>
+
+    <div class="flex content">
+        {% for c in coats %}
+            <div class="flex item-card">
+                <div class="card-image">
+                    <img src="{{ c.image.url }}" alt="item img" class="image">
+                </div>
+
+                <div class="flex card-text">
+                    <a href="/product/{{ c.id }}" class="item-link">Пальто {{ c.title }}</a>
+                    <p class="item-price">{{ c.price }}BYN</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="flex footer">
+        <p class="copyright">
+            Copyright © 2021, C M K V — Все права защищены
+            <br>
+            Development & design — Anastasiya Lukashevich
+        </p>
+
+    <p class="offer">
+        Вы принимаете условия политики конфиденциальности и пользовательского соглашения каждый раз,
+        <br>
+        когда оставляете свои данные в любой форме обратной связи на сайте cmkv.by
+    </p>
+    </div>
+
+    {% include 'shop/static_components/cart.html' %}
+
+    <script src="{% static 'js/header.js' %}"></script>
+{% endblock %}

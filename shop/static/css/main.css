@@ -1,0 +1,57 @@
+.header {
+    height: 60px;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.header-logo {
+    color: #fff;
+    opacity: .85;
+    font-size: 18px;
+    letter-spacing: 5px;
+    transition: .1s;
+
+}
+
+.header-logo:hover {
+    opacity: 1;
+    transition: .1s;
+
+}
+
+
+.content {
+    height: 100vh;
+    width: 100vw;
+    background-image: url('../images/main_page_background.jpeg');
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.greeting {
+    color: #fff;
+    font-weight: 100;
+    letter-spacing: 2px;
+}
+
+.choices {
+    gap: 40px;
+}
+
+.choice {
+    color: #fff;
+    font-weight: 100;
+    border-bottom: 1px solid #fff;
+    transition: .1s;
+}
+
+.choice:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
+    transition: .1s;
+
+}

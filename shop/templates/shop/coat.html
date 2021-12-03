@@ -1,0 +1,127 @@
+{% extends 'shop/index.html' %}
+{% load static %}
+
+{% block head %}
+    <title>Пальто {{ coat.title }} </title>
+    <link rel="stylesheet" href="{% static 'css/coat.css' %}">
+{% endblock %}
+
+{% block container %}
+
+
+    <div class="flex header" id="header">
+        <div class="flex change-catalog nav-element">
+            <a href="{% url 'woman_catalog' %}"
+               class="change {% if coat.sex == "Жен" %}active-link{% endif %}">Женщинам</a>
+            <a href="{% url 'man_catalog' %}"
+               class="change {% if coat.sex == "Муж" %}active-link{% endif %}">Мужчинам</a>
+        </div>
+
+        <div class="flex logo nav-element">
+            <a href="{% url 'main' %}" class="header-logo">C M K V</a>
+        </div>
+
+        <div class="flex cart nav-element">
+            <a href="javascript:;" class="open-cart" id="open-cart-button">Корзина<sup class="cart-counter"
+                                                                                       id="cart-counter">0</sup> </a>
+        </div>
+    </div>
+
+    <div class="flex content">
+        <div class="image">
+            <img src="{{ coat.image.url }}" alt="coat photo" class="coat-img">
+        </div>
+
+        <div class="flex coat-data">
+            <div class="flex coat-data-header">
+                <h2 class="coat-title">Пальто {{ coat.title }}</h2>
+
+                <h2 class="coat-price">— {{ coat.price }} BYN</h2>
+            </div>
+
+            <div class="flex coat-data-sizes-cart">
+
+                <div class="flex coat-sizes">
+                    {% for size in coat.available_size.values %}
+                        <button class="size-choice" id="{{ size.size }}"
+                                onclick="selectSize('{{ size.size }}', {{ coat.id }}, '{{ coat.title }}', {{ coat.price }})">{{ size.size }}</button>
+                    {% endfor %}
+                </div>
+
+                <button class="add-to-cart" onclick="addToCart({{ coat.id }})">Добавить в корзину</button>
+            </div>
+
+            <div class="flex coat-other-data">
+                <hr>
+
+                <div class="flex spoiler coat-description-spoiler">
+                    <div class="flex spoiler-header" id="coat-description-spoiler-header">
+                        <h5 class="spoiler-title">ОПИСАНИЕ ТОВАРА</h5>
+                        <span class="open-spoiler" id="open-coat-description-spoiler">+</span>
+                    </div>
+
+                    <div class="spoiler-body hidden-spoiler" id="coat-description-spoiler-body">
+                        <p class="coat-description">{{ coat.description }}</p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="flex spoiler coat-composition-spoiler">
+                    <div class="flex spoiler-header" id="coat-composition-spoiler-header">
+                        <h5 class="spoiler-title">СОСТАВ И УХОД</h5>
+                        <span class="open-spoiler" id="open-coat-composition-spoiler">+</span>
+
+                    </div>
+
+                    <div class="flex spoiler-body hidden-spoiler" id="coat-composition-spoiler-body">
+                        <p class="coat-composition">{{ coat.composition }}</p>
+                    </div>
+                </div>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="flex footer">
+        <p class="copyright">
+            Copyright © 2021, C M K V — Все права защищены
+            <br>
+            Development & design — Anastasiya Lukashevich
+        </p>
+
+        <p class="offer">
+            Вы принимаете условия политики конфиденциальности и пользовательского соглашения каждый раз,
+            <br>
+            когда оставляете свои данные в любой форме обратной связи на сайте cmkv.by
+        </p>
+    </div>
+
+
+    <div class="flex modal modal-hidden" id="added-to-cart-modal">
+        <div class="flex modal-inner-window">
+            <h2 class="modal-title">Товар добавлен в корзину</h2>
+            <button class="confirm-modal" onclick="addedToCartModal.classList.add('modal-hidden')">OK</button>
+        </div>
+    </div>
+
+    <div class="flex modal modal-hidden" id="choose-size-modal">
+        <div class="flex modal-inner-window">
+            <h2 class="modal-title">Выберите размер</h2>
+            <button class="confirm-modal" onclick="chooseSizeModal.classList.add('modal-hidden')">OK</button>
+        </div>
+    </div>
+
+    {% include 'shop/static_components/cart.html' %}
+
+    <script src="{% static 'js/header.js' %}"></script>
+    <script src="{% static 'js/size_choice.js' %}"></script>
+    <script src="{% static 'js/description_spoilers.js' %}"></script>
+    <script src="{% static 'js/add_to_cart.js' %}"></script>
+    <script src="{% static 'js/modal.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,154 @@
+.side-cart-background {
+    background-color: rgba(0, 0, 0, .45);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-end;
+}
+
+.side-cart {
+    flex-direction: column;
+
+    width: 500px;
+    height: 100%;
+    right: -500px;
+    background-color: #fff;
+    transition: .25s;
+}
+
+.side-cart-open {
+    right: 0;
+    transition: .25s;
+}
+
+.side-cart-header {
+    height: 60px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.side-cart-title {
+    font-weight: 100;
+}
+
+.close-side-cart:hover {
+    cursor: pointer;
+}
+
+.side-cart-background {
+    display: none;
+
+}
+
+.side-cart-background-on {
+    display: flex;
+}
+
+.confirm-order {
+    height: 40px;
+    width: 160px;
+    font-size: 14px;
+    border: 0;
+    background-color: rgba(0, 0, 0, 0.025);
+}
+
+hr {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, .1);
+    border: 0;
+}
+
+.side-cart-content {
+    height: calc(100% - 120px);
+    padding: 0 20px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.side-cart-footer {
+    height: 60px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.confirm-order:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.side-cart-items {
+    width: 100%;
+    flex-direction: column;
+}
+
+.side-cart-item {
+    height: 40px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.item-title-price {
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 100;
+    width: 280px;
+}
+
+.item-title {
+    font-weight: 300;
+    margin: 0;
+    width: 130px;
+}
+
+.item-size {
+    width: 30px;
+    text-align: center;
+}
+
+.item-counter {
+    width: 150px;
+    justify-content: flex-end;
+}
+
+.counter {
+    width: 30px;
+    height: 30px;
+    line-height: 0;
+    border: 0;
+    padding: 0;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.025);
+
+}
+
+.counter:focus {
+    outline: 0;
+}
+
+.side-cart-item-price {
+    margin: 0;
+    width: 90px;
+}
+
+.decrement, .increment {
+    height: 30px;
+    width: 30px;
+    font-size: 16px;
+    border: 0;
+    background-color: rgba(0, 0, 0, 0.025);
+}
+
+.decrement:hover,
+.increment:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.order-summary {
+    font-size: 14px;
+}

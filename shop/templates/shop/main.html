@@ -1,0 +1,21 @@
+{% extends 'shop/index.html' %}
+{% load static %}
+
+{% block head %}
+    <title>Интернет-магазин дизайнерских пальто</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+{% endblock %}
+
+{% block container %}
+    <div class="flex header">
+        <a href="{% url 'main' %}" class="header-logo">C M K V</a>
+    </div>
+
+    <div class="flex content">
+        <h3 class="greeting">Минимализм & Уличная мода</h3>
+        <div class="flex choices">
+            <a href="{% url 'woman_catalog' %}" class="choice">Женщинам</a>
+            <a href="{% url 'man_catalog' %}" class="choice">Мужчинам</a>
+        </div>
+    </div>
+{% endblock %}
