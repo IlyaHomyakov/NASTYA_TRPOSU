@@ -1,12 +1,24 @@
-[
-  {
-    "id": 1,
-    "size": "XL",
-    "quantity": 1
+{
+  "customer": {
+    "name": "",
+    "phone": ""
   },
-  {
-    "id": 3,
-    "size": "XL",
-    "quantity": 2
-  }
-]
+  "cart": [
+    {
+      "id": 7,
+      "size": "XL",
+      "quantity": 6,
+      "title": "NEO",
+      "price": 940,
+      "totalPrice": 940
+    },
+    {
+      "id": 3,
+      "size": "M",
+      "quantity": 0,
+      "title": "MATILDA",
+      "price": 620,
+      "totalPrice": 620
+    }
+  ]
+}

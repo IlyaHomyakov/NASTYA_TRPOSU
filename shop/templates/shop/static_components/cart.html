@@ -16,12 +16,16 @@
             </div>
 
             <div class="flex customer-data">
-                customer
+                <input type="text" value="" id="customer-name-input" class="customer-data-input customer-name" required
+                       placeholder="Введите имя">
+                <input type="tel" value="" id="customer-phone-input" class="customer-data-input customer-phone" required
+                       placeholder="Введите номер телефон">
             </div>
         </div>
 
         <div class="flex side-cart-footer">
-            <p class="order-summary" id="order-summary">Итоговая стоимость: <span id="total-cart-price-value"></span></p>
+            <p class="order-summary" id="order-summary">Итоговая стоимость: <span id="total-cart-price-value"></span>
+            </p>
             <button class="confirm-order" id="confirm-button">Оформить заказ</button>
         </div>
 
